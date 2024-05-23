@@ -1,7 +1,61 @@
+
+"""
+
+equipes = []
+pilotos = []
+
+def criar_equipe(nome, piloto1, piloto2, pilotoR, carro, diretor, wins, podiums, races, poles):
+    equipe = [nome, piloto1, piloto2, pilotoR, carro, diretor, wins, podiums, races, poles]
+    equipes.append(equipe)
+
+def criar_piloto(nome, equipe, naturalidade, idade, estreia, wins, podiums, races, poles):
+    piloto = [nome, equipe, naturalidade, idade, estreia, wins, podiums, races, poles]
+    pilotos.append(piloto)
+
+def exibir_equipe(equipe):
+    print(f"Informações da Equipe:\n\n"
+          f"Equipe: {equipe[0]}\n"
+          f"Piloto 1: {equipe[1]}\n"
+          f"Piloto 2: {equipe[2]}\n"
+          f"Piloto de Reserva: {equipe[3]}\n"
+          f"Carro: {equipe[4]}\n"
+          f"Diretor: {equipe[5]}\n\n"
+          f"Estaísticas da Equipe:\n\n"
+          f"Vitórias: {equipe[6]}\n"
+          f"Pódios: {equipe[7]}\n"
+          f"Corridas: {equipe[8]}\n"
+          f"Poles: {equipe[9]}")
+
+def exibir_piloto(piloto):
+    print(f"Informações do Piloto:\n\n"
+          f"Nome: {piloto[0]}\n"
+          f"Equipe: {piloto[1]}\n"
+          f"Naturalidade: {piloto[2]}\n"
+          f"Idade: {piloto[3]}\n"
+          f"Estreia: {piloto[4]}\n\n"
+          f"Estatísticas do Piloto:\n\n"
+          f"Vitórias: {piloto[5]}\n"
+          f"Pódios: {piloto[6]}\n"
+          f"Corridas: {piloto[7]}\n"
+          f"Poles: {piloto[8]}")
+
+# Exemplo de uso
+criar_equipe("Mahindra Racing", "Edoardo Mortara", "Nyck de Vries", "Jordan King, Kush Maini", "Mahindra M10Electro", "Frederic Bertrand", 5, 24, 125, 11)
+criar_piloto("Jake Dennis", "Andretti", "Reino Unido", 28, 2021, 6, 21, 24, 6)
+
+exibir_equipe(equipes[0])
+exibir_piloto(pilotos[0])
+
+
+"""
+
+# Classe que define uma equipe
 class Equipe:
 
+    # Lista de equipes
     equipes = []
 
+    # Inicializa a equipe
     def __init__(self, nome, piloto1, piloto2, pilotoR, carro, diretor, wins, podiums, races, poles):
 
         # Essenciais
@@ -18,8 +72,10 @@ class Equipe:
         self.races = races
         self.poles = poles
 
+        # Adiciona a equipe à lista de equipes
         Equipe.equipes.append(self)
 
+    # Exibe as informações da equipe
     def __str__(self):
         return (f"Informações da Equipe:\n\n"
                 f"Equipe: {self.nome}\n"
@@ -35,24 +91,13 @@ class Equipe:
                 f"Poles: {self.poles}")
 
 
-
-mahindra = Equipe("Mahindra Racing", "Edoardo Mortara", "Nyck de Vries", "Jordan King, Kush Maini", "Mahindra M10Electro", "Frederic Bertrand", 5, 24, 125, 11)
-cupra = Equipe("Abt Cupra", "Lucas Di Grassi", "Nico Müller", "Kelvin van der Linde", "Mahindra M10Electro", "Thomas Biermaier", 14, 47, 109, 6)
-andretti = Equipe("Andretti", "Jake Dennis", "Norman Nato", "Zane Maloney", "Porsche 99X Electric Gen3", "Roger Griffiths", 11, 39, 126, 13)
-penske = Equipe("Ds Penske", "Jean-Éric Vergne", "Stoffel Vandoorne", "Oliver Turvey", "DS E-TENSE FE23", "Jay Penske", 3, 16, 126, 5)
-envision = Equipe("Envision Racing", "Sébastien Buemi", "Robin Frijns", None, "Jaguar I-Type 6", "Sylvain Filippi", 16, 50, 126, 15)
-ert = Equipe("ERT", "Dan Ticktum", "Sérgio Sette Câmara", None, "ERT X24", "Alex Hui", 2, 6, 126, 2)
-jaguar = Equipe("Jaguar TCS Racing", "Mitch Evans", "Nick Cassidy", "Joel Eriksson, Tom Dillmann", "Jaguar I-Type 6", "James Barclay", 15, 41, 105, 8)
-maserati = Equipe("Maserati MSG Racing", "Jehan Daruvala", "Maximilian Günther", None, "Maserati Tipo Folgore", None, 10, 27, 126, 5)
-mcLaren = Equipe("Neom McLaren", "Jake Hughes", "Sam Bird", "Taylor Barnard", "Nissan e-4ORCE 04", "Ian James", 8, 25, 81, 12)
-tagHeuerPorsche = Equipe("Tag Heuer Porsche", "Pascal Wehrlein", "António Félix da Costa", "André Lotterer, David Beckmann", "Porsche 99X Electric Gen3", "Florian Modlinger", 8, 16, 68, 6)
-nissan = Equipe("Nissan", "Oliver Rowland", "Sacha Fenestraz", "Caio Collet", "Nissan e-4ORCE 04", "Tommaso Volpe", 18, 46, 126, 24)
-
-
+# Classe que define um piloto
 class Piloto:
 
+    # Lista de pilotos
     pilotos = []
 
+    # Inicializa o piloto
     def __init__(self, nome, equipe, naturalidade, idade, estreia, wins, podiums, races, poles):
 
         # Essenciais
@@ -68,8 +113,10 @@ class Piloto:
         self.races = races
         self.poles = poles
 
+        # Adiciona o piloto à lista de pilotos
         Piloto.pilotos.append(self)
 
+    # Exibe as informações do piloto
     def __str__(self):
         return (f"Informações do Piloto:\n\n"
                 f"Nome: {self.nome}\n"
@@ -82,6 +129,23 @@ class Piloto:
                 f"Pódios: {self.podiums}\n"
                 f"Corridas: {self.races}\n"
                 f"Poles: {self.poles}")
+
+
+# Dados das equipes
+
+mahindra = Equipe("Mahindra Racing", "Edoardo Mortara", "Nyck de Vries", "Jordan King, Kush Maini", "Mahindra M10Electro", "Frederic Bertrand", 5, 24, 125, 11)
+cupra = Equipe("Abt Cupra", "Lucas Di Grassi", "Nico Müller", "Kelvin van der Linde", "Mahindra M10Electro", "Thomas Biermaier", 14, 47, 109, 6)
+andretti = Equipe("Andretti", "Jake Dennis", "Norman Nato", "Zane Maloney", "Porsche 99X Electric Gen3", "Roger Griffiths", 11, 39, 126, 13)
+penske = Equipe("Ds Penske", "Jean-Éric Vergne", "Stoffel Vandoorne", "Oliver Turvey", "DS E-TENSE FE23", "Jay Penske", 3, 16, 126, 5)
+envision = Equipe("Envision Racing", "Sébastien Buemi", "Robin Frijns", None, "Jaguar I-Type 6", "Sylvain Filippi", 16, 50, 126, 15)
+ert = Equipe("ERT", "Dan Ticktum", "Sérgio Sette Câmara", None, "ERT X24", "Alex Hui", 2, 6, 126, 2)
+jaguar = Equipe("Jaguar TCS Racing", "Mitch Evans", "Nick Cassidy", "Joel Eriksson, Tom Dillmann", "Jaguar I-Type 6", "James Barclay", 15, 41, 105, 8)
+maserati = Equipe("Maserati MSG Racing", "Jehan Daruvala", "Maximilian Günther", None, "Maserati Tipo Folgore", None, 10, 27, 126, 5)
+mcLaren = Equipe("Neom McLaren", "Jake Hughes", "Sam Bird", "Taylor Barnard", "Nissan e-4ORCE 04", "Ian James", 8, 25, 81, 12)
+tagHeuerPorsche = Equipe("Tag Heuer Porsche", "Pascal Wehrlein", "António Félix da Costa", "André Lotterer, David Beckmann", "Porsche 99X Electric Gen3", "Florian Modlinger", 8, 16, 68, 6)
+nissan = Equipe("Nissan", "Oliver Rowland", "Sacha Fenestraz", "Caio Collet", "Nissan e-4ORCE 04", "Tommaso Volpe", 18, 46, 126, 24)
+
+# Dados dos pilotos
 
 JakeDennis = Piloto("Jake Dennis", "Andretti", "Reino Unido", 28, 2021, 6, 21, 24, 6)
 StoffelVandoorne = Piloto("Stoffel Vandoorne", "Ds Penske", "Bélgica", 32, 2018, 3, 16, 81, 8)
@@ -112,7 +176,7 @@ vanderlinde = Piloto("Kelvin van der Linde", "Abt Cupra", "África do Sul", 27, 
 pascalwehrlein = Piloto("Pascal Wehrlein", "Tag Heuer Porsche", "Alemanha", 29, 2018, 8, 16, 126, 6)
 
 
-
+# Inicializa o programa
 def start():
     print("Olá, seja bem-vindo(a) à database das equipes e pilotos da Fórmula E!!\n")
     print("1 - Acessar equipes\n"
@@ -129,31 +193,106 @@ def start():
     fazer = int(fazer)
 
     if fazer == 1:
-        equipes_start()
+        start_infos('equipes')
     elif fazer == 2:
-        pilotos_start()
+        start_infos('pilotos')
     elif fazer == 3:
         end()
 
+# Finaliza o programa
 def end():
     print("Até mais!")
     return None
 
-def voltar_sair(local):
+
+# Mostra os dados das equipes ou dos pilotos e chama a função de forçar escolha
+def start_infos(who):
+    print(f"Aqui estão as fichas de {who} da Fórmula E:\n")
+
+    lista = []
+
+    if who == 'equipes':
+        lista = Equipe.equipes
+    elif who == 'pilotos':
+        lista = Piloto.pilotos
+
+    index = 1
+    for i in lista:
+        print(f"{index} - {i.nome}")
+        index += 1
+
     print(f"\n- Voltar\n"
-          f"- Sair\n"
-          f"- Menu\n")
+          f"- Sair\n")
+
+    escolha = input("Digite o número correspondente à ficha que deseja acessar.\n"
+                    "Caso contrário, digite 'voltar' para voltar ao menu ou 'sair' para encerrar o programa.\n"
+                    "-> ")
+
+    forcar_escolha(index, escolha, who)
+
+
+# Força a escolha do usuário, chama a função de acessar informações e dá opção de voltar para o menu ou finalizar o programa
+def forcar_escolha(Index, Escolha, who):
+
+    escolha = Escolha
+    index = Index
+
+    while True:
+        if escolha.isnumeric():
+            escolha_num = int(escolha)
+
+            if 1 <= escolha_num <= index - 1:
+                if who == 'equipes':
+                    exibir_infos(escolha_num, 'equipe')
+                    break
+                elif who == 'pilotos':
+                    exibir_infos(escolha_num, 'piloto')
+                    break
+                break
+            else:
+                escolha = input("Opção inválida. Digite novamente.\n"
+                                "-> ")
+                continue
+
+        elif escolha.lower() == 'voltar':
+            start()
+            break
+        elif escolha.lower() == 'sair':
+            end()
+            break
+        escolha = input("Opção inválida. Digite novamente.\n"
+                        "-> ")
+
+
+# Exibe as informações da equipe ou do piloto escolhido
+def exibir_infos(Escolha, who):
+
+    escolha = Escolha
+
+    if who == 'equipe':
+        print(Equipe.equipes[escolha - 1])
+        voltar_sair('equipe')
+    elif who == 'piloto':
+        print(Piloto.pilotos[escolha - 1])
+        voltar_sair('piloto')
+
+
+# Dá opção de voltar para o menu anterior, voltar para o menu principal ou encerrar o programa
+def voltar_sair(local):
+    print("\n- Voltar\n"
+          "- Sair\n"
+          "- Menu\n")
 
     fazer = input("Digite 'voltar' para voltar ao menu anterior, 'sair' para encerrar o programa ou 'menu' para acessar o menu principal.\n"
                   "-> ")
 
     while True:
         if fazer.lower() == 'voltar':
-            if local == 'equipes_acessar':
-                equipes_start()
+            if local == 'equipe':
+                start_infos('equipes')
                 break
-            elif local == 'pilotos_acessar':
-                pilotos_start()
+            elif local == 'piloto':
+                start_infos('pilotos')
                 break
         elif fazer.lower() == 'sair':
             end()
@@ -166,91 +305,5 @@ def voltar_sair(local):
                         "-> ")
 
 
-def equipes_start():
-    print("Aqui estão as equipes da Fórmula E:\n")
-
-    index = 1
-    for i in Equipe.equipes:
-        print(f"{index} - {i.nome}")
-        index += 1
-
-    print(f"\n- Voltar\n"
-          f"- Sair\n")
-
-    escolha = input("Digite o número correspondente à equipe que deseja acessar.\n"
-                    "Caso contrário, digite 'voltar' para voltar ao menu ou 'sair' para encerrar o programa.\n"
-                  "-> ")
-
-    while True:
-        if escolha.isnumeric():
-            escolha_num = int(escolha)
-
-            if 1 <= escolha_num <= index - 1:
-                equipes_acessar(escolha_num)
-                break
-            else:
-                escolha = input("Opção inválida. Digite novamente.\n"
-                                "-> ")
-                continue
-
-        elif escolha.lower() == 'voltar':
-            start()
-            break
-        elif escolha.lower() == 'sair':
-            end()
-            break
-        escolha = input("Opção inválida. Digite novamente.\n"
-                        "-> ")
-
-def equipes_acessar(escolha):
-
-    Escolha = escolha
-    print(Equipe.equipes[Escolha - 1])
-
-    voltar_sair('equipes_acessar')
-
-def pilotos_acessar(escolha):
-
-        Escolha = escolha
-        print(Piloto.pilotos[Escolha - 1])
-
-        voltar_sair('pilotos_acessar')
-
-def pilotos_start():
-    print("Aqui estão os pilotos da Fórmula E:\n")
-
-    index = 1
-    for i in Piloto.pilotos:
-        print(f"{index} - {i.nome}")
-        index += 1
-
-    print(f"\n- Voltar\n"
-          f"- Sair\n")
-
-    escolha = input("Digite o número correspondente ao piloto que deseja acessar.\n"
-                    "Caso contrário, digite 'voltar' para voltar ao menu ou 'sair' para encerrar o programa.\n"
-                  "-> ")
-
-    while True:
-        if escolha.isnumeric():
-            escolha_num = int(escolha)
-
-            if 1 <= escolha_num <= index - 1:
-                pilotos_acessar(escolha_num)
-                break
-            else:
-                escolha = input("Opção inválida. Digite novamente.\n"
-                                "-> ")
-                continue
-
-        elif escolha.lower() == 'voltar':
-            start()
-            break
-        elif escolha.lower() == 'sair':
-            end()
-            break
-        escolha = input("Opção inválida. Digite novamente.\n"
-                        "-> ")
-
-
+# Inicializa o programa
 start()
